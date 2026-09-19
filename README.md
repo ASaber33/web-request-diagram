@@ -1,35 +1,35 @@
 # Web Request Diagram
 
-هذا المشروع يوضح رحلة طلب HTTP من المتصفح إلى موقع يستخدمه الشخص يوميًا، وهو GitHub.
+This project shows the path of an HTTP request from the browser to a site I use every day: GitHub.
 
 ## Diagram
 
 ```mermaid
 graph LR
-    A[المتصفح<br/>Browser] -->|1. يكتب عنوان الموقع| B[DNS Resolver]
-    B -->|2. يبحث عن IP Address| C[ISP / Recursive Resolver]
-    C -->|3. يرجع عنوان IP| D[Internet Routing]
-    D -->|4. يرسل HTTPS Request| E[CDN / Edge Network]
-    E -->|5. يوجه الطلب إلى السيرفر| F[GitHub Web Server]
-    F -->|6. يطلب البيانات| G[Application Server / Backend]
-    G -->|7. يقرأ البيانات| H[Database]
-    H -->|8. يرجع البيانات| G
-    G -->|9. يصنع الاستجابة| F
-    F -->|10. يرسل HTML / JSON| E
-    E -->|11. يوزع الرد على المستخدم| A
+    A[Browser] -->|1. User opens the URL| B[DNS Resolver]
+    B -->|2. Looks up the IP address| C[ISP / Recursive Resolver]
+    C -->|3. Returns the IP address| D[Internet Routing]
+    D -->|4. Sends the HTTPS request| E[CDN / Edge Network]
+    E -->|5. Routes the request to the server| F[GitHub Web Server]
+    F -->|6. Requests data| G[Application Server / Backend]
+    G -->|7. Reads data| H[Database]
+    H -->|8. Returns the data| G
+    G -->|9. Builds the response| F
+    F -->|10. Sends HTML / JSON| E
+    E -->|11. Delivers the response to the user| A
 ```
 
-## شرح بسيط
+## Simple explanation
 
-عندما أفتح موقع GitHub في المتصفح، يبدأ الطلب من الجهاز الخاص بي. أول خطوة هي البحث عن عنوان IP الخاص بالموقع عبر DNS. بعد معرفة العنوان، يرسل المتصفح طلب HTTPS عبر الإنترنت. هذا الطلب يمر عبر شبكات الإنترنت، وقد يمر عبر CDN أو خوادم وسيطة قبل الوصول إلى خوادم GitHub نفسها.
+When I open GitHub in the browser, the request starts from my device. The first step is a DNS lookup, where the browser asks which IP address belongs to the website. After it receives the IP, the browser sends an HTTPS request over the internet. This request may pass through internet infrastructure, a CDN, or other intermediate servers before it reaches GitHub's servers.
 
-بمجرد وصول الطلب إلى السيرفر، يبدأ التطبيق في تجهيز الصفحة أو البيانات المطلوبة. إذا كانت الصفحة تعتمد على بيانات من قاعدة البيانات، فسيتم طلب هذه البيانات من الواجهة الخلفية ثم من قاعدة البيانات. بعد ذلك، يرسل السيرفر الاستجابة مرة أخرى إلى المتصفح، والآخر يقوم بعرض الصفحة للمستخدم.
+Once the request reaches the server, the application prepares the required page or data. If the page depends on stored information, the backend requests that data from the database. After the server gathers everything needed, it sends the response back to the browser, which then renders the page for the user.
 
-## لماذا هذا مهم؟
+## Why this matters
 
-الفهم لرحلة الـ Request يساعدنا على فهم كيف تعمل الأنظمة الكبيرة في الواقع. عندما نبدأ ببناء تطبيقات حقيقية مثل منصات الفواتير أو المتاجر الإلكترونية أو أي نظام Node.js، فإن الطلب يمر بعدة مراحل للتأكد من الأمان، التحقق من الصلاحيات، قراءة البيانات، وحفظها بشكل صحيح.
+Understanding the request path helps us understand how large real-world systems work. When we build more complex apps later, such as billing systems, e-commerce sites, or Node.js applications, a request passes through many layers to confirm security, validate permissions, read data, and store information correctly.
 
-## GitHub Push
+## GitHub push
 
 ```bash
 git init
@@ -40,4 +40,4 @@ git remote add origin https://github.com/your-username/web-request-diagram.git
 git push -u origin main
 ```
 
-استبدل `your-username` باسم المستخدم الخاص بك في GitHub، ثم قم بتشغيل الأمر الأخير لرفع المشروع.
+Replace `your-username` with your GitHub username, then run the final command to push the project.
