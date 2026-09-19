@@ -1,43 +1,44 @@
 # Web Request Diagram
 
-This project shows the path of an HTTP request from the browser to a site I use every day: GitHub.
+This project shows the path of an HTTP request when a user opens my Facebook page in the browser.
 
 ## Diagram
 
 ```mermaid
 graph LR
-    A[Browser] -->|1. User opens the URL| B[DNS Resolver]
-    B -->|2. Looks up the IP address| C[ISP / Recursive Resolver]
-    C -->|3. Returns the IP address| D[Internet Routing]
-    D -->|4. Sends the HTTPS request| E[CDN / Edge Network]
-    E -->|5. Routes the request to the server| F[GitHub Web Server]
-    F -->|6. Requests data| G[Application Server / Backend]
-    G -->|7. Reads data| H[Database]
-    H -->|8. Returns the data| G
-    G -->|9. Builds the response| F
-    F -->|10. Sends HTML / JSON| E
-    E -->|11. Delivers the response to the user| A
+    A[Browser] -->|1. User opens the page URL| B[DNS Resolver]
+    B -->|2. Looks up the IP address| C[Internet / ISP]
+    C -->|3. Routes the request| D[Facebook Server]
+    D -->|4. Sends request to app layer| E[Application Server]
+    E -->|5. Reads user profile data| F[Database]
+    F -->|6. Returns data| E
+    E -->|7. Builds the page response| D
+    D -->|8. Sends HTML / JSON response| A
 ```
 
 ## Simple explanation
 
-When I open GitHub in the browser, the request starts from my device. The first step is a DNS lookup, where the browser asks which IP address belongs to the website. After it receives the IP, the browser sends an HTTPS request over the internet. This request may pass through internet infrastructure, a CDN, or other intermediate servers before it reaches GitHub's servers.
+When I open my Facebook page in the browser, the request begins from my device. The browser asks DNS for the IP address of the Facebook domain. After the IP is found, the browser sends an HTTPS request through the internet and the request is routed to the Facebook servers.
 
-Once the request reaches the server, the application prepares the required page or data. If the page depends on stored information, the backend requests that data from the database. After the server gathers everything needed, it sends the response back to the browser, which then renders the page for the user.
+Once the request reaches the Facebook backend, the application layer reads the required data, such as profile information, posts, or page content, from a database. The server then prepares the response and sends it back to the browser, which renders the page for the user.
 
 ## Why this matters
 
-Understanding the request path helps us understand how large real-world systems work. When we build more complex apps later, such as billing systems, e-commerce sites, or Node.js applications, a request passes through many layers to confirm security, validate permissions, read data, and store information correctly.
+This request path helps explain how real web applications work in practice. Even a simple page load involves multiple steps: resolving the domain, sending the request, processing it in the backend, reading data, and returning a response to the browser.
+
+## Note
+
+This diagram is best created in visual tools such as Draw.io or Excalidraw, because the task is about showing the request flow clearly rather than building a live web page.
 
 ## GitHub push
 
 ```bash
 git init
 git add .
-git commit -m "Add request flow diagram and README"
+git commit -m "Add Facebook request diagram"
 git branch -M main
 git remote add origin https://github.com/your-username/web-request-diagram.git
 git push -u origin main
 ```
 
-Replace `your-username` with your GitHub username, then run the final command to push the project.
+Replace `your-username` with your GitHub username before pushing the project.

@@ -1,0 +1,72 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#3b82f6"/>
+    </marker>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #111827; }
+      .node { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 18; }
+      .label { font: 600 18px Arial, sans-serif; fill: #111827; }
+      .small { font: 500 16px Arial, sans-serif; fill: #374151; }
+      .step { font: 600 14px Arial, sans-serif; fill: #2563eb; }
+      .arrow { stroke: #3b82f6; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <text x="600" y="55" text-anchor="middle" class="title">Request Flow for My Facebook Page</text>
+
+  <rect class="node" x="60" y="120" width="180" height="100"/>
+  <text x="150" y="175" text-anchor="middle" class="label">Browser</text>
+  <text x="150" y="200" text-anchor="middle" class="small">My computer</text>
+
+  <rect class="node" x="300" y="120" width="180" height="100"/>
+  <text x="390" y="175" text-anchor="middle" class="label">DNS Resolver</text>
+  <text x="390" y="200" text-anchor="middle" class="small">Finds IP</text>
+
+  <rect class="node" x="540" y="120" width="180" height="100"/>
+  <text x="630" y="175" text-anchor="middle" class="label">Internet</text>
+  <text x="630" y="200" text-anchor="middle" class="small">Routing</text>
+
+  <rect class="node" x="780" y="120" width="200" height="100"/>
+  <text x="880" y="175" text-anchor="middle" class="label">Facebook Server</text>
+  <text x="880" y="200" text-anchor="middle" class="small">Receives request</text>
+
+  <rect class="node" x="470" y="320" width="220" height="110"/>
+  <text x="580" y="370" text-anchor="middle" class="label">Application Layer</text>
+  <text x="580" y="395" text-anchor="middle" class="small">Processes request</text>
+
+  <rect class="node" x="760" y="320" width="180" height="110"/>
+  <text x="850" y="370" text-anchor="middle" class="label">Database</text>
+  <text x="850" y="395" text-anchor="middle" class="small">Reads profile data</text>
+
+  <rect class="node" x="180" y="520" width="240" height="100"/>
+  <text x="300" y="575" text-anchor="middle" class="label">HTTP Response</text>
+  <text x="300" y="600" text-anchor="middle" class="small">HTML / JSON</text>
+
+  <path class="arrow" d="M240 220 L300 220"/>
+  <text x="268" y="210" class="step">1</text>
+
+  <path class="arrow" d="M480 220 L540 220"/>
+  <text x="500" y="210" class="step">2</text>
+
+  <path class="arrow" d="M720 220 L780 220"/>
+  <text x="742" y="210" class="step">3</text>
+
+  <path class="arrow" d="M850 220 L850 320"/>
+  <text x="860" y="280" class="step">4</text>
+
+  <path class="arrow" d="M780 375 L690 375"/>
+  <text x="730" y="360" class="step">5</text>
+
+  <path class="arrow" d="M690 420 L760 420"/>
+  <text x="720" y="405" class="step">6</text>
+
+  <path class="arrow" d="M580 430 L580 520"/>
+  <text x="590" y="480" class="step">7</text>
+
+  <path class="arrow" d="M420 570 L180 570"/>
+  <text x="300" y="555" class="step">8</text>
+
+  <path class="arrow" d="M180 170 L60 170"/>
+  <text x="120" y="155" class="step">9</text>
+</svg>
