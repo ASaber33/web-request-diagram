@@ -1,46 +1,54 @@
 # Web Request Diagram
 
-This project shows how a request to my Facebook page travels through the web stack before the page is displayed in the browser.
+This project shows how a request to the GitHub API travels through the web before a response is returned.
 
-## Overview
+## Example request
 
-When I open my Facebook page, the browser sends a request to the server. The request passes through several layers before the page is rendered. This diagram explains the flow step by step.
+```bash
+curl -i https://api.github.com/users/ASaber33
+```
+
+This request was executed in the terminal and returned a successful HTTP response.
 
 ## Diagram
 
 ```mermaid
 graph LR
-    A[Browser] -->|1. Open page URL| B[DNS Resolver]
-    B -->|2. Find IP address| C[Internet]
-    C -->|3. Route request| D[Facebook Server]
-    D -->|4. Forward to app layer| E[Application Layer]
-    E -->|5. Read page data| F[Database]
+    A[Client / Terminal] -->|1. Send HTTP request| B[DNS Resolver]
+    B -->|2. Resolve domain name| C[Internet / Network]
+    C -->|3. Route request| D[GitHub API Server]
+    D -->|4. Process request| E[Application Layer]
+    E -->|5. Fetch user data| F[Database / Storage]
     F -->|6. Return data| E
-    E -->|7. Build page response| D
-    D -->|8. Send HTML / JSON| A
+    E -->|7. Build JSON response| D
+    D -->|8. Send HTTP response| A
 ```
 
 ## Step-by-step explanation
 
-1. The browser starts the request from my device when I open the Facebook page.
-2. DNS resolves the page domain into an IP address so the client knows where to send the request.
-3. The request travels through the internet and is routed to the target server.
-4. The Facebook server receives the request and sends it to the application layer.
-5. The application layer processes the request and fetches the required data from the database.
-6. The database sends the data back to the app layer.
-7. The server builds the final HTML or JSON response.
-8. The browser receives that response and renders the page for the user.
+1. The client sends a request using curl to the GitHub API.
+2. DNS resolves the domain name api.github.com into an IP address.
+3. The request travels across the internet to the GitHub server.
+4. The server receives the request and passes it to the application layer.
+5. The application reads the required user data.
+6. The response is prepared in JSON format.
+7. The GitHub server sends the HTTP response back to the client.
+8. The client receives the data and can display or process it.
 
 ## Why this matters
 
-This flow is the foundation of how web applications work. Even a simple request passes through multiple layers: DNS, internet routing, servers, backend logic, and databases. Understanding this structure helps when building real applications in Node.js, APIs, and larger systems.
+This flow is a real example of how web requests work in practice. Even a simple API call passes through DNS, internet routing, server processing, and response handling before the client receives the result.
+
+## HTTP response example
+
+The request returned a `200 OK` status, which means the server successfully processed the request and returned the requested user data.
 
 ## Repository push
 
 ```bash
 git init
 git add .
-git commit -m "Add Facebook request diagram"
+git commit -m "Add GitHub API request diagram"
 git branch -M main
 git remote add origin https://github.com/your-username/web-request-diagram.git
 git push -u origin main
