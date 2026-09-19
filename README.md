@@ -1,29 +1,40 @@
-# Request Flow for a Facebook Page
+# Facebook Request Flow
 
-This project shows how a request to a Facebook page travels through the web before the page is displayed in the browser.
+This project shows how a request to Facebook is processed before the page is returned to the browser.
+
+## Example request
+
+A user opens Facebook in a browser and requests the homepage or a profile page.
 
 ## Diagram
 
 ```mermaid
 graph LR
-    A[Browser] -->|1. Open page URL| B[DNS Resolver]
-    B -->|2. Find IP address| C[Internet]
-    C -->|3. Route request| D[Facebook Server]
-    D -->|4. Forward to app layer| E[Application Layer]
-    E -->|5. Read page data| F[Database]
+    A[Browser] -->|1. Send HTTP request| B[DNS Resolver]
+    B -->|2. Resolve facebook.com| C[Internet / Routing]
+    C -->|3. Route request| D[Facebook Web Server]
+    D -->|4. Pass request to app layer| E[Application Server]
+    E -->|5. Fetch user data / content| F[Database]
     F -->|6. Return data| E
     E -->|7. Build response| D
-    D -->|8. Send HTML / JSON| A
+    D -->|8. Send HTML / data| A
 ```
 
-## Explanation
+## Step-by-step explanation
 
-When I open a Facebook page, the browser starts a request from my device. The first step is DNS, where the browser asks for the IP address of the website. After the IP is found, the browser sends an HTTPS request through the internet. That request is routed to the Facebook server.
-
-Once the request reaches the server, the application layer processes it and fetches the data needed for the page. The database returns the required information, the server builds the final response, and the browser renders the page for the user.
+1. The browser sends an HTTP request to Facebook.
+2. DNS resolves facebook.com to an IP address.
+3. The request travels through the internet and network infrastructure.
+4. Facebook receives the request on its web server.
+5. The application server processes the request and fetches the required data.
+6. The database returns the needed information such as posts, profile data, or page content.
+7. The backend builds the final response.
+8. The browser receives the page and renders it to the user.
 
 ## Why this matters
 
-This request flow is the basic idea behind how web apps work. A page request does not go directly from the browser to one server. It passes through DNS, the internet, server logic, and databases before the final page is shown.
+This flow represents how a normal web request works in real life. Even a simple page load involves DNS, routing, server processing, application logic, and database access before the user sees the final result.
 
-This helps me understand how real systems handle requests, fetch data, and respond to users.
+## Response example
+
+The browser receives an HTTP response from Facebook, which contains the page content and supporting assets needed to display the website correctly.
