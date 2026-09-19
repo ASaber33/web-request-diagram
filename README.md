@@ -32,7 +32,7 @@ DNS only resolves the domain name. It does not send the HTTPS request. The brows
 
 The following is a conceptual representation of the main components:
 
-`User -> Browser -> DNS -> IP Address -> Internet -> Facebook Web Server -> Application Server -> Database -> Application Server -> Web Server -> Browser`
+`User -> Browser -> DNS -> IP Address -> Internet -> Facebook Web Server -> Application / Backend Server -> Database -> same Application / Backend Server -> Web Server / HTTPS Response -> Browser -> Rendered Facebook Page`
 
 The database is part of the server side; it is not accessed directly by the browser.
 

@@ -54,23 +54,21 @@
   <text x="2095" y="323" text-anchor="middle" class="node" transform="rotate(-90 2095 323)">Database</text>
 
   <g filter="url(#shadow)">
-    <rect x="1640" y="585" width="200" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
-    <rect x="1390" y="585" width="200" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
-    <rect x="1140" y="585" width="200" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
-    <rect x="890" y="585" width="200" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
-    <rect x="640" y="585" width="200" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
-    <rect x="390" y="585" width="200" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
+    <rect x="1560" y="585" width="250" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
+    <rect x="1260" y="585" width="220" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
+    <rect x="980" y="585" width="220" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
+    <rect x="700" y="585" width="220" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
+    <rect x="420" y="585" width="220" height="110" rx="12" fill="#fff0ed" stroke="#e7a18e" stroke-width="2"/>
   </g>
   <g stroke="#d96c4f" stroke-width="3" fill="none" marker-end="url(#response-arrow)">
-    <path d="M2095 370 V540 H1740 V585"/><line x1="1640" y1="640" x2="1590" y2="640"/><line x1="1390" y1="640" x2="1340" y2="640"/><line x1="1140" y1="640" x2="1090" y2="640"/><line x1="890" y1="640" x2="840" y2="640"/><line x1="640" y1="640" x2="590" y2="640"/>
+    <path d="M2095 370 V540 H1685 V585"/><line x1="1560" y1="640" x2="1480" y2="640"/><line x1="1260" y1="640" x2="1200" y2="640"/><line x1="980" y1="640" x2="920" y2="640"/><line x1="700" y1="640" x2="640" y2="640"/>
   </g>
-  <text x="1740" y="630" text-anchor="middle" class="node">Application Server</text><text x="1740" y="658" text-anchor="middle" class="copy">Builds response</text>
-  <text x="1490" y="630" text-anchor="middle" class="node">Web Server</text><text x="1490" y="658" text-anchor="middle" class="copy">Sends response</text>
-  <text x="1240" y="630" text-anchor="middle" class="node">HTTPS Response</text><text x="1240" y="658" text-anchor="middle" class="copy">Encrypted data</text>
-  <text x="990" y="630" text-anchor="middle" class="node">Browser</text><text x="990" y="658" text-anchor="middle" class="copy">Receives response</text>
-  <text x="740" y="630" text-anchor="middle" class="node">Rendered Page</text><text x="740" y="658" text-anchor="middle" class="copy">Facebook content</text>
-  <text x="490" y="630" text-anchor="middle" class="node">User sees</text><text x="490" y="658" text-anchor="middle" class="copy">the returned page</text>
+  <text x="1685" y="630" text-anchor="middle" class="node">Application / Backend</text><text x="1685" y="658" text-anchor="middle" class="copy">Same layer prepares response</text>
+  <text x="1370" y="630" text-anchor="middle" class="node">Web Server /</text><text x="1370" y="658" text-anchor="middle" class="copy">HTTPS Response</text>
+  <text x="1090" y="630" text-anchor="middle" class="node">Browser</text><text x="1090" y="658" text-anchor="middle" class="copy">Receives response</text>
+  <text x="810" y="630" text-anchor="middle" class="node">Rendered Page</text><text x="810" y="658" text-anchor="middle" class="copy">Facebook content</text>
+  <text x="530" y="630" text-anchor="middle" class="node">User sees</text><text x="530" y="658" text-anchor="middle" class="copy">the returned page</text>
 
-  <text x="1100" y="820" text-anchor="middle" class="response-label">Response direction: database data -> application -> web server -> HTTPS -> browser -> rendered page</text>
+  <text x="1100" y="820" text-anchor="middle" class="response-label">Response direction: database data -> same application/backend layer -> web server / HTTPS -> browser -> rendered page</text>
   <text x="80" y="900" class="subtitle">DNS resolves the domain; it does not carry the HTTPS request. The browser never connects directly to the database.</text>
 </svg>

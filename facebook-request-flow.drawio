@@ -51,14 +51,11 @@
           <mxGeometry x="480" y="82" width="150" height="70" as="geometry" />
         </mxCell>
 
-        <mxCell id="response-app" value="Application Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d96c4f;fontColor=#17324d;fontStyle=1;fontSize=15;" vertex="1" parent="response-section">
-          <mxGeometry x="1350" y="82" width="180" height="62" as="geometry" />
+        <mxCell id="response-app" value="Application / Backend Server&#xa;(same layer)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d96c4f;fontColor=#17324d;fontStyle=1;fontSize=15;" vertex="1" parent="response-section">
+          <mxGeometry x="1280" y="82" width="240" height="62" as="geometry" />
         </mxCell>
-        <mxCell id="response-web" value="Web Server" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d96c4f;fontColor=#17324d;fontStyle=1;fontSize=15;" vertex="1" parent="response-section">
-          <mxGeometry x="1080" y="82" width="160" height="62" as="geometry" />
-        </mxCell>
-        <mxCell id="https-response" value="HTTPS Response" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d96c4f;fontColor=#17324d;fontStyle=1;fontSize=15;" vertex="1" parent="response-section">
-          <mxGeometry x="810" y="82" width="180" height="62" as="geometry" />
+        <mxCell id="https-response" value="Web Server /&#xa;HTTPS Response" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d96c4f;fontColor=#17324d;fontStyle=1;fontSize=15;" vertex="1" parent="response-section">
+          <mxGeometry x="1000" y="82" width="200" height="62" as="geometry" />
         </mxCell>
         <mxCell id="response-browser" value="Browser" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d96c4f;fontColor=#17324d;fontStyle=1;fontSize=15;" vertex="1" parent="response-section">
           <mxGeometry x="540" y="82" width="160" height="62" as="geometry" />
@@ -78,8 +75,7 @@
         <mxCell id="e-web-app" value="Forward request" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1976a8;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="web-server" target="application"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e-app-db" value="Read data" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#1976a8;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="application" target="database"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e-db-response-app" value="Return data" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d96c4f;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="database" target="response-app"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-response-app-web" value="Build response" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d96c4f;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="response-app" target="response-web"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-response-web-https" value="Send response" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d96c4f;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="response-web" target="https-response"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e-response-app-https" value="Build and return response" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d96c4f;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="response-app" target="https-response"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e-https-browser" value="Encrypted response" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d96c4f;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="https-response" target="response-browser"><mxGeometry relative="1" as="geometry" /></mxCell>
         <mxCell id="e-browser-render" value="Render content" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d96c4f;strokeWidth=2;endArrow=block;" edge="1" parent="1" source="response-browser" target="rendered-page"><mxGeometry relative="1" as="geometry" /></mxCell>
       </root>
