@@ -1,40 +1,56 @@
-# Facebook Request Flow
+# Web Request Diagram
 
-This project shows how a request to Facebook is processed before the page is returned to the browser.
+## Overview
 
-## Example request
-
-A user opens Facebook in a browser and requests the homepage or a profile page.
+This project explains what happens when a user enters `https://www.facebook.com` in a browser and presses Enter. The diagram follows the request from the user to Facebook's infrastructure and then follows the response back to the browser.
 
 ## Diagram
 
-```mermaid
-graph LR
-    A[Browser] -->|1. Send HTTP request| B[DNS Resolver]
-    B -->|2. Resolve facebook.com| C[Internet / Routing]
-    C -->|3. Route request| D[Facebook Web Server]
-    D -->|4. Pass request to app layer| E[Application Server]
-    E -->|5. Fetch user data / content| F[Database]
-    F -->|6. Return data| E
-    E -->|7. Build response| D
-    D -->|8. Send HTML / data| A
-```
+![Facebook Request Flow](facebook-request-flow.svg)
 
-## Step-by-step explanation
+The editable Draw.io source is available in [facebook-request-flow.drawio](facebook-request-flow.drawio).
 
-1. The browser sends an HTTP request to Facebook.
-2. DNS resolves facebook.com to an IP address.
-3. The request travels through the internet and network infrastructure.
-4. Facebook receives the request on its web server.
-5. The application server processes the request and fetches the required data.
-6. The database returns the needed information such as posts, profile data, or page content.
-7. The backend builds the final response.
-8. The browser receives the page and renders it to the user.
+## Request Flow
 
-## Why this matters
+1. The user enters `https://www.facebook.com` in the browser.
+2. The browser identifies `facebook.com` as the requested domain.
+3. DNS resolves the domain name to an IP address.
+4. The browser establishes the required TCP connection with the destination.
+5. Because Facebook uses HTTPS, the browser and server establish TLS encryption.
+6. The browser sends an HTTPS request.
+7. The request travels through the Internet and network routers.
+8. The request reaches Facebook's web server infrastructure.
+9. The application server processes the request.
+10. The application may communicate with databases and other services when content is needed.
+11. The server prepares an HTTPS response.
+12. The response travels back through the network to the browser.
+13. The browser renders the returned Facebook page and its required assets.
 
-This flow represents how a normal web request works in real life. Even a simple page load involves DNS, routing, server processing, application logic, and database access before the user sees the final result.
+DNS only resolves the domain name. It does not send the HTTPS request. The browser communicates with Facebook's server-side infrastructure, while application servers communicate with databases when necessary.
 
-## Response example
+## Simplified Architecture
 
-The browser receives an HTTP response from Facebook, which contains the page content and supporting assets needed to display the website correctly.
+The following is a conceptual representation of the main components:
+
+`User -> Browser -> DNS -> IP Address -> Internet -> Facebook Web Server -> Application Server -> Database -> Application Server -> Web Server -> Browser`
+
+The database is part of the server side; it is not accessed directly by the browser.
+
+## Technologies / Concepts
+
+- Web Browser
+- Client
+- DNS
+- IP Address
+- HTTP/HTTPS
+- TCP
+- TLS
+- Internet Routing
+- Web Server
+- Application Server
+- Database
+- HTTP Response
+
+## Purpose
+
+The purpose of this task is to understand how a web request travels through different components before and after reaching a server.
