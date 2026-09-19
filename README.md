@@ -37,7 +37,7 @@ git init
 git add .
 git commit -m "Add Facebook request diagram"
 git branch -M main
-git remote add origin https://github.com/your-username/web-request-diagram.git
+git remote add origin https://github.com/ASaber33/web-request-diagram.git
 git push -u origin main
 ```
 
