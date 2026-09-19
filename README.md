@@ -1,4 +1,4 @@
-# Web Request Diagram
+# Request Flow for a Facebook Page
 
 This project shows how a request to a Facebook page travels through the web before the page is displayed in the browser.
 
@@ -12,16 +12,18 @@ graph LR
     D -->|4. Forward to app layer| E[Application Layer]
     E -->|5. Read page data| F[Database]
     F -->|6. Return data| E
-    E -->|7. Build page response| D
+    E -->|7. Build response| D
     D -->|8. Send HTML / JSON| A
 ```
 
-## Simple explanation
+## Explanation
 
-When I open my Facebook page in the browser, the request starts from my device. The browser asks DNS for the IP address of the website, then sends an HTTPS request over the internet. The request is routed to the Facebook servers, which process it and fetch the required data.
+When I open a Facebook page, the browser starts a request from my device. The first step is DNS, where the browser asks for the IP address of the website. After the IP is found, the browser sends an HTTPS request through the internet. That request is routed to the Facebook server.
 
-The application layer reads the needed information from the database, builds the response, and sends it back to the browser. Finally, the browser renders the page for the user.
+Once the request reaches the server, the application layer processes it and fetches the data needed for the page. The database returns the required information, the server builds the final response, and the browser renders the page for the user.
 
 ## Why this matters
 
-This flow explains how real web applications work. A simple page request passes through DNS, internet routing, server processing, application logic, and a database before the final response is shown to the user.
+This request flow is the basic idea behind how web apps work. A page request does not go directly from the browser to one server. It passes through DNS, the internet, server logic, and databases before the final page is shown.
+
+This helps me understand how real systems handle requests, fetch data, and respond to users.
