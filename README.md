@@ -1,36 +1,39 @@
 # Web Request Diagram
 
-This project shows the path of an HTTP request when a user opens my Facebook page in the browser.
+This project shows how a request to my Facebook page travels through the web stack before the page is displayed in the browser.
 
-This example uses my own Facebook page as the target. If you want to use your own page later, replace the page name in the diagram with the exact page or profile you are testing.
+## Overview
+
+When I open my Facebook page, the browser sends a request to the server. The request passes through several layers before the page is rendered. This diagram explains the flow step by step.
 
 ## Diagram
 
 ```mermaid
 graph LR
-    A[Browser] -->|1. User opens the page URL| B[DNS Resolver]
-    B -->|2. Looks up the IP address| C[Internet / ISP]
-    C -->|3. Routes the request| D[Facebook Server]
-    D -->|4. Sends request to app layer| E[Application Server]
-    E -->|5. Reads user profile data| F[Database]
-    F -->|6. Returns data| E
-    E -->|7. Builds the page response| D
-    D -->|8. Sends HTML / JSON response| A
+    A[Browser] -->|1. Open page URL| B[DNS Resolver]
+    B -->|2. Find IP address| C[Internet]
+    C -->|3. Route request| D[Facebook Server]
+    D -->|4. Forward to app layer| E[Application Layer]
+    E -->|5. Read page data| F[Database]
+    F -->|6. Return data| E
+    E -->|7. Build page response| D
+    D -->|8. Send HTML / JSON| A
 ```
 
-## Simple explanation
+## Step-by-step explanation
 
-When I open my Facebook page in the browser, the request begins from my device. The browser asks DNS for the IP address of the Facebook domain. After the IP is found, the browser sends an HTTPS request through the internet and the request is routed to the Facebook servers.
-
-Once the request reaches the Facebook backend, the application layer reads the required data, such as profile information, posts, or page content, from a database. The server then prepares the response and sends it back to the browser, which renders the page for the user.
+1. The browser starts the request from my device when I open the Facebook page.
+2. DNS resolves the page domain into an IP address so the client knows where to send the request.
+3. The request travels through the internet and is routed to the target server.
+4. The Facebook server receives the request and sends it to the application layer.
+5. The application layer processes the request and fetches the required data from the database.
+6. The database sends the data back to the app layer.
+7. The server builds the final HTML or JSON response.
+8. The browser receives that response and renders the page for the user.
 
 ## Why this matters
 
-This request path helps explain how real web applications work in practice. Even a simple page load involves multiple steps: resolving the domain, sending the request, processing it in the backend, reading data, and returning a response to the browser.
-
-## Note
-
-This diagram is best created in visual tools such as Draw.io or Excalidraw, because the task is about showing the request flow clearly rather than building a live web page.
+This flow is the foundation of how web applications work. Even a simple request passes through multiple layers: DNS, internet routing, servers, backend logic, and databases. Understanding this structure helps when building real applications in Node.js, APIs, and larger systems.
 
 ## Repository push
 
@@ -39,7 +42,7 @@ git init
 git add .
 git commit -m "Add Facebook request diagram"
 git branch -M main
-git remote add origin https://github.com/ASaber33/web-request-diagram.git
+git remote add origin https://github.com/your-username/web-request-diagram.git
 git push -u origin main
 ```
 
