@@ -1,6 +1,6 @@
 # Facebook Request Flow
 
-This project shows how a request to Facebook is processed before the page is returned to the browser.
+This project visualizes how a browser request to Facebook travels through DNS, the network, and Facebook's backend before the page is returned.
 
 ## Example request
 
@@ -8,28 +8,20 @@ A user opens Facebook in a browser and requests the homepage or a profile page.
 
 ## Diagram
 
-```mermaid
-graph LR
-    A[Browser] -->|1. Send HTTP request| B[DNS Resolver]
-    B -->|2. Resolve facebook.com| C[Internet / Routing]
-    C -->|3. Route request| D[Facebook Web Server]
-    D -->|4. Pass request to app layer| E[Application Server]
-    E -->|5. Fetch user data / content| F[Database]
-    F -->|6. Return data| E
-    E -->|7. Build response| D
-    D -->|8. Send HTML / data| A
-```
+![Facebook request flow diagram](facebook-request-flow.drawio.svg)
+
+The diagram was created in diagrams.net (Draw.io) and exported as an SVG.
 
 ## Step-by-step explanation
 
 1. The browser sends an HTTP request to Facebook.
 2. DNS resolves facebook.com to an IP address.
 3. The request travels through the internet and network infrastructure.
-4. Facebook receives the request on its web server.
-5. The application server processes the request and fetches the required data.
-6. The database returns the needed information such as posts, profile data, or page content.
-7. The backend builds the final response.
-8. The browser receives the page and renders it to the user.
+4. Facebook's web server receives the request and forwards it to the application server.
+5. The application server processes the request and fetches the required content.
+6. The database returns information such as posts, profile data, or page content.
+7. The backend builds the HTTP response and sends it to the browser.
+8. The browser receives the response and renders the page.
 
 ## Why this matters
 
