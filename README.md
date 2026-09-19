@@ -2,6 +2,8 @@
 
 This project shows the path of an HTTP request when a user opens my Facebook page in the browser.
 
+This example uses my own Facebook page as the target. If you want to use your own page later, replace the page name in the diagram with the exact page or profile you are testing.
+
 ## Diagram
 
 ```mermaid
@@ -30,7 +32,7 @@ This request path helps explain how real web applications work in practice. Even
 
 This diagram is best created in visual tools such as Draw.io or Excalidraw, because the task is about showing the request flow clearly rather than building a live web page.
 
-## GitHub push
+## Repository push
 
 ```bash
 git init
