@@ -1,0 +1,1 @@
+This file contains the first section of the project report. It introduces the asynchronous workflow used to process text-based input without blocking the Node.js event loop.
