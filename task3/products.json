@@ -1,0 +1,17 @@
+[
+  {
+    "id": 101,
+    "name": "HTTP Starter Kit",
+    "price": 25
+  },
+  {
+    "id": 102,
+    "name": "Node.js Essentials",
+    "price": 30
+  },
+  {
+    "id": 103,
+    "name": "API Testing Guide",
+    "price": 20
+  }
+]
