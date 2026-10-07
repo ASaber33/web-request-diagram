@@ -1,0 +1,2 @@
+This file contains the first section of the project report. It introduces the asynchronous workflow used to process text-based input without blocking the Node.js event loop.
+This file contains the second section of the project report. Once both source files have been read successfully, their contents are merged through an EventEmitter and saved as a single output document.
