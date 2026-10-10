@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:3100/login
+method: GET
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\":\"user11@gmail.com\",\r
+
+    \    \"password\":\"user11\"\r
+
+    \r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 3000
